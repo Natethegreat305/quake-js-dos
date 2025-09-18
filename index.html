@@ -13,10 +13,14 @@
     Dos(document.getElementById("jsdos-container"), {
       wdosboxUrl: "https://js-dos.com/v7/woff/"
     }).ready(function(fs) {
+      // Make sure the folder name matches exactly
       fs.extract("quake/").then(() => {
         this.run("QUAKE.EXE");
+      }).catch(err => {
+        console.error("Error extracting files:", err);
       });
     });
   </script>
 </body>
 </html>
+
